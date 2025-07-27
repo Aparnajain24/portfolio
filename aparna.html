@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aparna's Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Slideshow Background */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    animation: slide 25s infinite;
+    filter: brightness(0.8);
+}
+@keyframes slide {
+    0%, 25% { background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb'); }
+    26%, 50% { background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e'); }
+    51%, 75% { background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee'); }
+    76%, 100% { background-image: url('https://images.unsplash.com/photo-1481277542470-605612bd2d61'); }
+}
+
+/* Navbar */
+nav {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px;
+    z-index: 1000;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+nav a:hover {
+    background: #f06292;
+}
+
+/* Sections with Glass Effect */
+section {
+    padding: 80px 10%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    margin: 60px auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #f06292;
+}
+
+/* Header */
+header {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+header h1 {
+    font-size: 3rem;
+    color: #fff;
+}
+header p.typing {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 15px;
+    color: #fff;
+}
+.buttons {
+    margin-top: 20px;
+}
+.buttons a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px 25px;
+    margin: 10px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.8);
+    color: #f06292;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.buttons a:hover {
+    background: #f06292;
+    color: #fff;
+}
+
+/* About */
+.about {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.about img {
+    width: 250px;
+    border-radius: 50%;
+    margin: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+.about-text {
+    max-width: 500px;
+    margin: 20px;
+}
+
+/* Projects */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.project-card {
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+    text-align: center;
+}
+.project-card:hover {
+    transform: translateY(-10px);
+}
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+.project-card h3 {
+    padding: 15px;
+    font-size: 1.2rem;
+    color: #f06292;
+}
+.project-card a {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #fff;
+    background: #f06292;
+    padding: 8px 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.project-card a:hover {
+    background: #ec407a;
+}
+
+/* Contact */
+.contact form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: auto;
+}
+.contact input, .contact textarea {
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1rem;
+    background: rgba(255,255,255,0.8);
+}
+.contact button {
+    padding: 12px;
+    background: #f06292;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.contact button:hover {
+    background: #ec407a;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255,255,255,0.3);
+    color: #fff;
+    margin-top: 30px;
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<header>
+    <div>
+        <h1>Hi, I'm Aparna</h1>
+        <p class="typing"></p>
+        <div class="buttons">
+            <a href="#projects">View Projects</a>
+            <a href="resume.pdf" download>Download Resume</a>
+        </div>
+    </div>
+</header>
+
+<section id="about">
+    <h2>About Me</h2>
+    <div class="about">
+        <img src="https://images.unsplash.com/photo-1614281459400-5b48a9a27f73" alt="Profile">
+        <div class="about-text">
+            <p>Hello! I'm Aparna, a passionate frontend developer who loves creating aesthetic, interactive websites. Skilled in HTML, CSS, and JavaScript, I aim to design user-friendly and visually appealing digital experiences.</p>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>My Projects</h2>
+    <div class="projects">
+        <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1607083209356-914b3971e7d8" alt="Project">
+            <h3>Dreamy Weekly Planner</h3>
+            <a href="https://github.com/yourusername/dreamy-planner" target="_blank">View</a>
+        </div>
+        <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64" alt="Project">
+            <h3>Motivational Quotes App</h3>
+            <a href="https://github.com/yourusername/motivation-app" target="_blank">View</a>
+        </div>
+        <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1522202221256-6552b0f7d43d" alt="Project">
+            <h3>AI Chatbot Interface</h3>
+            <a href="https://github.com/yourusername/chatbot" target="_blank">View</a>
+        </div>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <h2>Contact Me</h2>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2025 Aparna Jain | Built with ❤️</p>
+</footer>
+
+<script>
+const typingText = ["Frontend Developer", "Web Designer", "Creative Coder"];
+let index = 0;
+let charIndex = 0;
+const typingElement = document.querySelector(".typing");
+
+function type() {
+    if (charIndex < typingText[index].length) {
+        typingElement.textContent += typingText[index].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, 100);
+    } else {
+        setTimeout(erase, 1500);
+    }
+}
+
+function erase() {
+    if (charIndex > 0) {
+        typingElement.textContent = typingText[index].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(erase, 50);
+    } else {
+        index = (index + 1) % typingText.length;
+        setTimeout(type, 500);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(type, 500);
+});
+</script>
+
+</body>
+</html>
